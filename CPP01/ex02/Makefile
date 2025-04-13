@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/28 10:46:53 by rbaticle          #+#    #+#              #
-#    Updated: 2025/04/10 17:00:46 by rbaticle         ###   ########.fr        #
+#    Created: 2025/04/07 17:22:47 by rbaticle          #+#    #+#              #
+#    Updated: 2025/04/10 17:02:16 by rbaticle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = zombie
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-SRCS = megaphone.cpp
+SRCS = main.cpp
 
 OBJS_DIR = .objs/
 OBJ = $(SRCS:.cpp=.o)

@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 16:46:39 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/04 18:04:27 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/04/07 11:26:32 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,23 @@ Contact::Contact(std::string first_name, std::string last_name, std::string nick
 	this->secret = secret;
 }
 
-inline std::string	Contact::get_first_name(void) {
+Contact::Contact(void) {
+	return ;
+}
+
+Contact::~Contact(void) {
+	return ;
+}
+
+std::string	Contact::get_first_name(void) {
 	return (this->first_name);
 }
 
-inline std::string	Contact::get_last_name(void) {
+std::string	Contact::get_last_name(void) {
 	return (this->last_name);
 }
 
-inline std::string	Contact::get_nickname(void) {
+std::string	Contact::get_nickname(void) {
 	return (this->nickname);
 }
 

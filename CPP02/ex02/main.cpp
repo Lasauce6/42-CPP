@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:22:10 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/07 12:00:35 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/10 16:46:30 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/11 13:30:39 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Fixed.hpp"
 
-class PhoneBook 
-{
-	public:
-		PhoneBook(void);
-		int		add(Contact contact);
-		int		search(void);
-		~PhoneBook(void);
-	private:
-		int		last_in;
-		Contact	contacts[8];
-		bool	full;
-};
+#include <iostream>
+int main( void ) {
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max( a, b ) << std::endl;
+
+	return 0;
+}

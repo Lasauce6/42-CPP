@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:22:10 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/07 12:00:35 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/07 20:11:41 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/07 20:23:33 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Weapon.hpp"
 
-class PhoneBook 
-{
-	public:
-		PhoneBook(void);
-		int		add(Contact contact);
-		int		search(void);
-		~PhoneBook(void);
-	private:
-		int		last_in;
-		Contact	contacts[8];
-		bool	full;
-};
+Weapon::Weapon(std::string type) {
+	this->type = type;
+}
+
+std::string	Weapon::getType(void) const {
+	return (type);
+}
+
+void	Weapon::setType(std::string type) {
+	this->type = type;
+}
+
+Weapon::~Weapon(void) {
+	return ;
+}

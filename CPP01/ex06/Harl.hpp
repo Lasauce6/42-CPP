@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:22:10 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/07 12:00:35 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/08 12:07:11 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/08 12:09:57 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
+# include <string>
+# include <iostream>
 
-class PhoneBook 
-{
-	public:
-		PhoneBook(void);
-		int		add(Contact contact);
-		int		search(void);
-		~PhoneBook(void);
-	private:
-		int		last_in;
-		Contact	contacts[8];
-		bool	full;
+class Harl {
+public:
+	Harl(void);
+	void	complain(std::string level);
+	~Harl(void);
+private:
+	void	debug(void);
+	void	infos(void);
+	void	warning(void);
+	void	error(void);
 };
+
+#endif

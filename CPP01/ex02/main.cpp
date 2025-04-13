@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:22:10 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/07 12:00:35 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/07 17:59:12 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/07 18:04:51 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include <string>
+#include <iostream>
 
-class PhoneBook 
-{
-	public:
-		PhoneBook(void);
-		int		add(Contact contact);
-		int		search(void);
-		~PhoneBook(void);
-	private:
-		int		last_in;
-		Contact	contacts[8];
-		bool	full;
-};
+int	main(void) {
+	std::string	s = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &s;
+	std::string	&stringREF = s;
+
+	std::cout << &s << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+
+	std::cout << s << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
+}

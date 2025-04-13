@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:22:10 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/07 12:00:35 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/11 13:34:13 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/11 14:09:52 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#ifndef POINT_HPP
+# define POINT_HPP
+# include "Fixed.hpp"
 
-class PhoneBook 
-{
-	public:
-		PhoneBook(void);
-		int		add(Contact contact);
-		int		search(void);
-		~PhoneBook(void);
-	private:
-		int		last_in;
-		Contact	contacts[8];
-		bool	full;
+class Point {
+public:
+	Point(void);
+	Point(const Point &other);
+	Point &operator=(const Point &other);
+	
+	Point(const Fixed x, const Fixed y);
+	
+	Fixed	getX(void) const;
+	Fixed	getY(void) const;
+
+	~Point(void);
+private:
+	const Fixed	x;
+	const Fixed	y;
 };
+
+#endif

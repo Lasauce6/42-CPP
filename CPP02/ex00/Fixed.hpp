@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:22:10 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/07 12:00:35 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/10 16:23:54 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/10 16:41:21 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-class PhoneBook 
-{
-	public:
-		PhoneBook(void);
-		int		add(Contact contact);
-		int		search(void);
-		~PhoneBook(void);
-	private:
-		int		last_in;
-		Contact	contacts[8];
-		bool	full;
+class Fixed {
+public:
+	Fixed(void);
+	Fixed(const Fixed &other);
+	Fixed &operator=(const Fixed &other);
+
+	int					getRawBits(void) const;
+	void				setRawBits(int const raw);
+
+	~Fixed(void);
+private:
+	int					value;
+	static const int	nb_bits;
 };
+
+#endif

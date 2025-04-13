@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:22:10 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/07 12:00:35 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/07 17:45:39 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/07 17:52:43 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Zombie.hpp"
+#include <iostream>
 
-class PhoneBook 
-{
-	public:
-		PhoneBook(void);
-		int		add(Contact contact);
-		int		search(void);
-		~PhoneBook(void);
-	private:
-		int		last_in;
-		Contact	contacts[8];
-		bool	full;
-};
+Zombie	*zombieHorde(int N, std::string name) {
+	if (N <= 0 || N > 2147483647) {
+		std::cout << "Invalid value" << std::endl;
+		return (NULL);
+	}
+	Zombie	*horde = new Zombie[N];
+	for (int i = 0; i < N; i++) {
+		horde[i].set_name(name);
+	}
+	return (horde);
+}

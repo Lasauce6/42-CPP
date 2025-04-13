@@ -5,15 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/28 10:46:53 by rbaticle          #+#    #+#              #
-#    Updated: 2025/04/10 17:00:46 by rbaticle         ###   ########.fr        #
+#    Created: 2025/04/10 16:22:45 by rbaticle          #+#    #+#              #
+#    Updated: 2025/04/10 17:05:05 by rbaticle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = a.out
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-SRCS = megaphone.cpp
+SRCS = main.cpp \
+	   Fixed.cpp
 
 OBJS_DIR = .objs/
 OBJ = $(SRCS:.cpp=.o)

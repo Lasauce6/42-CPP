@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:22:10 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/07 12:00:35 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/07 19:56:21 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/07 20:23:36 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
+# include <string>
 
-class PhoneBook 
-{
+class Weapon {
 	public:
-		PhoneBook(void);
-		int		add(Contact contact);
-		int		search(void);
-		~PhoneBook(void);
+		Weapon(std::string type);
+		std::string	getType(void) const;
+		void		setType(std::string type);
+		~Weapon(void);
 	private:
-		int		last_in;
-		Contact	contacts[8];
-		bool	full;
+		std::string	type;
 };
+
+#endif

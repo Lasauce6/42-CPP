@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/28 13:22:10 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/07 12:00:35 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/07 17:23:42 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/07 17:52:57 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
+# include <string>
 
-class PhoneBook 
-{
+class Zombie {
 	public:
-		PhoneBook(void);
-		int		add(Contact contact);
-		int		search(void);
-		~PhoneBook(void);
+		Zombie(void);
+		Zombie(std::string name);
+		void	announce(void);
+		void	set_name(std::string name);
+		~Zombie(void);
 	private:
-		int		last_in;
-		Contact	contacts[8];
-		bool	full;
+		std::string	name;
 };
+
+Zombie	*zombieHorde(int N, std::string name);
+
+#endif
