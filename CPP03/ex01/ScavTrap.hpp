@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/11 13:34:13 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/14 15:36:53 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/16 20:44:00 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/04/17 11:50:08 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-# define POINT_HPP
-# include "Fixed.hpp"
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-class Point {
+# include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap {
 public:
-	Point(void);
-	Point(const Point &other);
-	Point &operator=(const Point &other);
-	
-	Point(const Fixed x, const Fixed y);
-	
-	Fixed	getX(void) const;
-	Fixed	getY(void) const;
+	ScavTrap(std::string name);
+	ScavTrap(const ScavTrap &other);
+	ScavTrap	&operator=(const ScavTrap &other);
 
-	~Point(void);
+	void	guardGate(void);
+
+	~ScavTrap(void);
 private:
-	Fixed	x;
-	Fixed	y;
 };
 
 #endif

@@ -6,16 +6,17 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 13:38:22 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/11 14:13:22 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:36:24 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Point::Point(void) : x(Fixed()), y(Fixed()) {}
+Point::Point(void) : x(0), y(0) {}
 
 Point::Point(const Point &other) {
-	*this = other;
+	this->x.setRawBits(other.x.getRawBits());
+	this->y.setRawBits(other.y.getRawBits());
 }
 
 Point	&Point::operator=(const Point &other) {

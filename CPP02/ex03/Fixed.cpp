@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 16:31:48 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/04/11 14:12:24 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/04/14 15:30:11 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,10 @@ Fixed	Fixed::operator+(const Fixed &other) const {
 	return (this->toFloat() + other.toFloat());
 }
 
-Fixed	Fixed::operator-(const Fixed &other) const {
-	return (this->toFloat() - other.toFloat());
+Fixed Fixed::operator-(const Fixed &other) const {
+	Fixed result;
+	result.setRawBits(this->getRawBits() - other.getRawBits());
+	return result;
 }
 
 Fixed	Fixed::operator*(const Fixed &other) const {
