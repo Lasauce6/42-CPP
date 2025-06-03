@@ -6,17 +6,18 @@
 #    By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 15:16:11 by rbaticle          #+#    #+#              #
-#    Updated: 2025/06/03 15:40:16 by rbaticle         ###   ########.fr        #
+#    Updated: 2025/06/03 16:57:04 by rbaticle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex00
+NAME = ex01
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 SRCS = Animal.cpp \
 	   Cat.cpp \
 	   Dog.cpp \
 	   WrongCat.cpp \
+	   Brain.cpp \
 	   main.cpp
 
 OBJS_DIR = .objs/

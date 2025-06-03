@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:12:36 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/05/23 14:50:33 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/03 14:36:59 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 
 	~DiamondTrap(void);
 private:
-	std::string	_name;
+	std::string	name;
 };
 
 #endif

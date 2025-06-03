@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 15:18:12 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/03 15:32:52 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/05/04 22:05:21 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Cat.hpp"
+#include <iostream>
 
-# include <string>
+Cat::Cat(void) {
+	std::cout << "Cat constructor called" << std::endl;
+	this->type = "Cat";
+}
 
-class Animal {
-public:
-	Animal(void);
-	Animal(const Animal &other);
-	Animal	&operator=(const Animal &other);
+Cat::Cat(const Cat &other) {
+	this->type = other.type;
+}
 
-	void	makeSound(void) const;
-	std::string	getType(void) const;
+Cat	&Cat::operator=(const Cat &other) {
+	if (this != &other)
+		*this = other;
+	return (*this);
+}
 
-	~Animal(void);
-protected:
-	std::string	type;
-};
-
-#endif
+Cat::~Cat(void) {
+	std::cout << "Cat destructor called" << std::endl;
+}

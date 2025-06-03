@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 15:18:12 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/03 15:32:52 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/06/03 16:12:07 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/03 16:54:40 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 # include <string>
 
-class Animal {
+class Brain {
 public:
-	Animal(void);
-	Animal(const Animal &other);
-	Animal	&operator=(const Animal &other);
+	Brain(void);
+	Brain(const Brain &other);
+	Brain	&operator=(const Brain &other);
 
-	void	makeSound(void) const;
-	std::string	getType(void) const;
+	void		setIdea(int index, std::string idea);
+	std::string	getIdea(int index);
 
-	~Animal(void);
-protected:
-	std::string	type;
+	~Brain(void);
+private:
+	std::string	ideas[100];
 };
 
 #endif

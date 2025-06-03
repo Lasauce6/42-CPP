@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 15:21:56 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/03 15:32:58 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/03 17:21:13 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Animal::Animal(void) {
 	std::cout << "Animal constructor called" << std::endl;
 	type = "";
+	this->brain = new Brain();
 }
 
 Animal::Animal(const Animal &other) {
@@ -41,6 +42,15 @@ std::string	Animal::getType(void) const {
 	return (type);
 }
 
+std::string Animal::getIdea(int index) const {
+	return (brain->getIdea(index));
+}
+
+void	Animal::setIdea(int index, std::string idea) const {
+	brain->setIdea(index, idea);
+}
+
 Animal::~Animal(void) {
 	std::cout << "Animal destructor called" << std::endl;
+	delete brain;
 }

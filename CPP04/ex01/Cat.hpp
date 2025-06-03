@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 15:18:12 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/03 15:32:52 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/05/03 17:30:49 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/05/05 17:32:14 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <string>
+# include "Animal.hpp"
 
-class Animal {
+class Cat : public Animal {
 public:
-	Animal(void);
-	Animal(const Animal &other);
-	Animal	&operator=(const Animal &other);
+	Cat(void);
+	Cat(const Cat &other);
+	Cat	&operator=(const Cat &other);
 
-	void	makeSound(void) const;
-	std::string	getType(void) const;
-
-	~Animal(void);
-protected:
-	std::string	type;
+	~Cat(void);
 };
 
 #endif

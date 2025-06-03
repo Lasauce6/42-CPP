@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 20:36:37 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/05/23 14:48:10 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/03 15:17:54 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 class ClapTrap {
 public:
-	ClapTrap(void);
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &other);
 	ClapTrap	&operator=(const ClapTrap &other);

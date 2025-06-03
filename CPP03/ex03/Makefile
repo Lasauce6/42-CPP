@@ -6,13 +6,13 @@
 #    By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/16 11:43:54 by rbaticle          #+#    #+#              #
-#    Updated: 2025/04/23 12:53:16 by rbaticle         ###   ########.fr        #
+#    Updated: 2025/06/03 14:58:00 by rbaticle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = claptrap
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -std=c++98
+CFLAGS = -Wall -Werror -Wextra -std=c++98 -g3 -fstandalone-debug
 SRCS = ClapTrap.cpp \
 	   ScavTrap.cpp \
 	   FragTrap.cpp \
