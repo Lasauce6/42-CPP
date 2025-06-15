@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:36:15 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/03 15:39:13 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:30:04 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 WrongCat::WrongCat(void) {
 	std::cout << "WrongCat constructor called" << std::endl;
-	type = "Dog";
+	type = "Cat";
 }
 
-WrongCat::WrongCat(const WrongCat &other) {
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal() {
 	this->type = other.type;
 }
 

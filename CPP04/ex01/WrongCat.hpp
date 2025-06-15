@@ -6,16 +6,16 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:33:56 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/03 15:35:58 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:22:04 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
 
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
-class WrongCat : public Animal {
+class WrongCat : public WrongAnimal {
 public:
 	WrongCat(void);
 	WrongCat(const WrongCat &other);

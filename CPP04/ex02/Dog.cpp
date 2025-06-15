@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/28 15:55:17 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/05 13:18:32 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 #include <iostream>
 
-Cat::Cat(void) {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
+Dog::Dog(void) {
+	std::cout << "Dog constructor called" << std::endl;
+	type = "Dog";
 }
 
-Cat::Cat(const Cat &other) : Animal() {
+Dog::Dog(const Dog &other) : AAnimal() {
 	this->type = other.type;
 }
 
-Cat	&Cat::operator=(const Cat &other) {
-	if (this != &other)
+Dog	&Dog::operator=(const Dog &other) {
+	if (this != &other) 
 		*this = other;
 	return (*this);
 }
 
-Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
+void	Dog::makeSound(void) const {
+	std::cout << "BARK !" << std::endl;
+}
+
+Dog::~Dog(void) {
+	std::cout << "Dog destructor called" << std::endl;
 }

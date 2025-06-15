@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/06/03 16:12:07 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/03 16:54:40 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include <iostream>
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+# include <string>
 
-Cat::Cat(void) {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
+class Brain {
+public:
+	Brain(void);
+	Brain(const Brain &other);
+	Brain	&operator=(const Brain &other);
 
-Cat::Cat(const Cat &other) : Animal() {
-	this->type = other.type;
-}
+	void		setIdea(int index, std::string idea);
+	std::string	getIdea(int index);
 
-Cat	&Cat::operator=(const Cat &other) {
-	if (this != &other)
-		*this = other;
-	return (*this);
-}
+	~Brain(void);
+private:
+	std::string	ideas[100];
+};
 
-Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
-}
+#endif

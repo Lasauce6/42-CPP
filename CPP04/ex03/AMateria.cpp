@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/06/06 12:18:32 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/06 12:28:00 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
-Cat::Cat(void) {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
+AMateria::AMateria(std::string const & type) {
+	this->type = type;
 }
 
-Cat::Cat(const Cat &other) : Animal() {
-	this->type = other.type;
+AMateria::AMateria(const AMateria &other) {
+	this->type = other.getType();
 }
 
-Cat	&Cat::operator=(const Cat &other) {
+AMateria	&AMateria::operator=(const AMateria &other) {
 	if (this != &other)
-		*this = other;
+		(*this) = other;
 	return (*this);
 }
 
-Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
+std::string const	&AMateria::getType() const {
+	return (this->type);
 }
+
+void	AMateria::use(ICharacter &target) {
+	(void) target;
+	std::cout << "use: no materia" << std::endl;
+}
+
+AMateria::~AMateria(void) {}

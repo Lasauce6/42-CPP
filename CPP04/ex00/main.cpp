@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:24:34 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/03 15:45:04 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:28:04 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	const Animal* k = new WrongCat();
+	const WrongAnimal* k = new WrongCat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	std::cout << k->getType() << " " << std::endl;

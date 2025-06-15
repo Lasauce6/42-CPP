@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/06/06 12:02:55 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/15 19:47:00 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include <iostream>
+#ifndef CURE_HPP
+# define CURE_HPP
 
-Cat::Cat(void) {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
+# include "AMateria.hpp"
 
-Cat::Cat(const Cat &other) : Animal() {
-	this->type = other.type;
-}
+class Cure : public AMateria {
+	Cure(void);
+	Cure(const Cure  &other);
+	Cure	&operator=(const Cure &other);
 
-Cat	&Cat::operator=(const Cat &other) {
-	if (this != &other)
-		*this = other;
-	return (*this);
-}
+	AMateria*	clone(void) const;
+	void		use(ICharacter& target);
 
-Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
-}
+	~Cure(void);
+};
+
+#endif

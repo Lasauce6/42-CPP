@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/06/15 18:47:24 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/15 19:43:50 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Cure.hpp"
 #include <iostream>
 
-Cat::Cat(void) {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
+Cure::Cure(void) : AMateria("cure") {}
 
-Cat::Cat(const Cat &other) : Animal() {
-	this->type = other.type;
-}
+Cure::Cure(const Cure &other) : AMateria("cure") {}
 
-Cat	&Cat::operator=(const Cat &other) {
+Cure	&Cure::operator=(const Cure &other) {
 	if (this != &other)
-		*this = other;
+		this->type = other.type;
 	return (*this);
 }
 
-Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
+AMateria*	Cure::clone(void) const {
+	return (new Cure(*this));
 }
+
+void	Cure::use(ICharacter& target) {
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}
+
+Cure::~Cure(void) {}

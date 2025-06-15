@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:18:20 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat(void) {
 	this->type = "Cat";
 }
 
-Cat::Cat(const Cat &other) : Animal() {
+Cat::Cat(const Cat &other) : AAnimal() {
 	this->type = other.type;
 }
 
@@ -26,6 +26,10 @@ Cat	&Cat::operator=(const Cat &other) {
 	if (this != &other)
 		*this = other;
 	return (*this);
+}
+
+void	Cat::makeSound(void) const {
+	std::cout << "MEW !" << std::endl;
 }
 
 Cat::~Cat(void) {

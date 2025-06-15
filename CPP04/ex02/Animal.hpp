@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/03 15:33:56 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:22:04 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/04/28 15:18:12 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/05 13:17:05 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-# include "WrongAnimal.hpp"
+# include <string>
+# include "Brain.hpp"
 
-class WrongCat : public WrongAnimal {
+class AAnimal {
 public:
-	WrongCat(void);
-	WrongCat(const WrongCat &other);
-	WrongCat	&operator=(const WrongCat &other);
+	AAnimal(void);
+	AAnimal(const AAnimal &other);
+	AAnimal	&operator=(const AAnimal &other);
 
-	~WrongCat(void);
+	virtual void	makeSound(void) const = 0;
+	std::string	getType(void) const;
+	std::string	getIdea(int index) const;
+	void		setIdea(int index, std::string idea) const;
+
+	virtual ~AAnimal(void);
+protected:
+	std::string	type;
+	Brain		*brain;
 };
 
 #endif

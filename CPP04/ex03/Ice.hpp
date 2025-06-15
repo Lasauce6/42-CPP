@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/06/06 12:00:39 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/15 19:46:50 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include <iostream>
+#ifndef ICE_HPP
+# define ICE_HPP
 
-Cat::Cat(void) {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
+# include "AMateria.hpp"
 
-Cat::Cat(const Cat &other) : Animal() {
-	this->type = other.type;
-}
+class Ice : public AMateria {
+public:
+	Ice(void);
+	Ice(const Ice &other);
+	Ice	&operator=(const Ice &other);
 
-Cat	&Cat::operator=(const Cat &other) {
-	if (this != &other)
-		*this = other;
-	return (*this);
-}
+	AMateria*	clone(void) const;
+	void		use(ICharacter& target);
 
-Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
-}
+	~Ice(void);
+};
+
+#endif

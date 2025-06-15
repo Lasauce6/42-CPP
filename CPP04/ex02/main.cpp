@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 15:24:34 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:28:09 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:27:22 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,26 @@
 int main()
 {
 	std::cout << "-----------EX00-----------" << std::endl;
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 	const WrongAnimal* k = new WrongCat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	std::cout << k->getType() << " " << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
-	meta->makeSound();
 	k->makeSound();
 
-	delete meta;
 	delete j;
 	delete i;
 	delete k;
 
-	std::cout << std::endl << std::endl << "-----------EX01-----------" << std::endl << std::endl;
-	const Animal	*u = new Cat();
+	std::cout << std::endl << std::endl << "-----------EX01/2-----------" << std::endl << std::endl;
+	const AAnimal	*u = new Cat();
 	u->setIdea(0, "eat some fiish!");
 	u->setIdea(1, "kill the bird");
 	u->setIdea(2, "destroy the sofa");
-	const Animal	*ucpy = u;
+	const AAnimal	*ucpy = u;
 
 	std::cout << ucpy->getIdea(0) << std::endl;
 	std::cout << ucpy->getIdea(1) << std::endl;
@@ -51,7 +48,7 @@ int main()
 	std::cout << std::endl;
 
 	delete u;
-	Animal *array[SIZE];
+	AAnimal *array[SIZE];
 	std::cout << std::endl;
 
 	int	c = -1;

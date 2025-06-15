@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/05/04 22:05:21 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:30:34 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Cat::Cat(void) {
 	this->type = "Cat";
 }
 
-Cat::Cat(const Cat &other) {
+Cat::Cat(const Cat &other) : Animal() {
 	this->type = other.type;
 }
 

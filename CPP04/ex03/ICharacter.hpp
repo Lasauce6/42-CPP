@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/06/05 13:36:46 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/15 19:52:01 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include <iostream>
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
-Cat::Cat(void) {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
+# include <string>
+# include "AMateria.hpp"
 
-Cat::Cat(const Cat &other) : Animal() {
-	this->type = other.type;
-}
 
-Cat	&Cat::operator=(const Cat &other) {
-	if (this != &other)
-		*this = other;
-	return (*this);
-}
+class ICharacter {
+public:
+	virtual ~ICharacter() {}
+	virtual std::string const	&getName() const = 0;
+	virtual void				equip(AMateria* m) = 0;
+	virtual void				unequip(int idx) = 0;
+	virtual void				use(int idx, ICharacter& target) = 0;
+};
 
-Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
-}
+#endif

@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/06/06 12:05:58 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/06 12:07:53 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include <iostream>
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-Cat::Cat(void) {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
+# include "AMateria.hpp"
 
-Cat::Cat(const Cat &other) : Animal() {
-	this->type = other.type;
-}
+class IMateriaSource {
+public:
+	virtual ~IMateriaSource() {}
+	virtual void		learnMateria(AMateria*) = 0;
+	virtual AMateria*	createMateria(std::string const & type) = 0;
+};
 
-Cat	&Cat::operator=(const Cat &other) {
-	if (this != &other)
-		*this = other;
-	return (*this);
-}
-
-Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
-}
+#endif

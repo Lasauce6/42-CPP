@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/04 22:02:09 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/05 13:31:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2025/06/06 12:34:26 by rbaticle          #+#    #+#             */
+/*   Updated: 2025/06/15 19:46:08 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Ice.hpp"
 #include <iostream>
 
-Cat::Cat(void) {
-	std::cout << "Cat constructor called" << std::endl;
-	this->type = "Cat";
-}
+Ice::Ice(void) : AMateria("ice") {}
 
-Cat::Cat(const Cat &other) : Animal() {
-	this->type = other.type;
-}
+Ice::Ice(const Ice &other) : AMateria("ice") {}
 
-Cat	&Cat::operator=(const Cat &other) {
+Ice	&Ice::operator=(const Ice &other) {
 	if (this != &other)
-		*this = other;
+		this->type = other.type;
 	return (*this);
 }
 
-Cat::~Cat(void) {
-	std::cout << "Cat destructor called" << std::endl;
+AMateria*	Ice::clone(void) const {
+	return (new Ice(*this));
 }
+
+void	Ice::use(ICharacter& target) {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
+
+Ice::~Ice(void) {}

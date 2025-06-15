@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 15:55:17 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/05/03 17:29:34 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:30:46 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog(void) {
 	type = "Dog";
 }
 
-Dog::Dog(const Dog &other) {
+Dog::Dog(const Dog &other) : Animal() {
 	this->type = other.type;
 }
 

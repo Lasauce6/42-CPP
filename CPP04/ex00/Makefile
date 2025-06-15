@@ -6,7 +6,7 @@
 #    By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 15:16:11 by rbaticle          #+#    #+#              #
-#    Updated: 2025/06/03 15:40:16 by rbaticle         ###   ########.fr        #
+#    Updated: 2025/06/05 13:25:36 by rbaticle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 SRCS = Animal.cpp \
 	   Cat.cpp \
 	   Dog.cpp \
+	   WrongAnimal.cpp \
 	   WrongCat.cpp \
 	   main.cpp
 
