@@ -6,14 +6,13 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 12:14:34 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/06 12:17:59 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/16 12:40:44 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-# include "ICharacter.hpp"
 # include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource {
@@ -22,7 +21,6 @@ public:
 	MateriaSource(const MateriaSource &other);
 	MateriaSource	&operator=(const MateriaSource &other);
 
-	void		deleteStock(void);
 	void		learnMateria(AMateria*);
 	AMateria	*createMateria(std::string const & type);
 

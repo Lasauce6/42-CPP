@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 12:02:55 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/15 19:47:00 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/16 12:26:47 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "AMateria.hpp"
 
 class Cure : public AMateria {
+public:
 	Cure(void);
 	Cure(const Cure  &other);
 	Cure	&operator=(const Cure &other);

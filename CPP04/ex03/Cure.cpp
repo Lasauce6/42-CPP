@@ -6,16 +6,19 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 18:47:24 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/15 19:43:50 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/16 12:24:24 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
 Cure::Cure(void) : AMateria("cure") {}
 
-Cure::Cure(const Cure &other) : AMateria("cure") {}
+Cure::Cure(const Cure &other) : AMateria("cure") {
+	(void) other;
+}
 
 Cure	&Cure::operator=(const Cure &other) {
 	if (this != &other)

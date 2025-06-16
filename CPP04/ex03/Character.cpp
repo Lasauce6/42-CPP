@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 18:50:04 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/15 19:50:09 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/16 12:52:14 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,9 @@ void	Character::use(int idx, ICharacter& target) {
 		std::cout << "error: inventory out of bounds" << std::endl;
 }
 
-Character::~Character(void) {}
+Character::~Character(void) {
+	for (int i = 0; i < 4; i++) {
+		if (inventory[i] != NULL)
+			delete inventory[i];
+	}
+}

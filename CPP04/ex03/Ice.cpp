@@ -6,16 +6,19 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 12:34:26 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/06/15 19:46:08 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/06/16 12:24:13 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
 Ice::Ice(void) : AMateria("ice") {}
 
-Ice::Ice(const Ice &other) : AMateria("ice") {}
+Ice::Ice(const Ice &other) : AMateria("ice") {
+	(void) other;
+}
 
 Ice	&Ice::operator=(const Ice &other) {
 	if (this != &other)
