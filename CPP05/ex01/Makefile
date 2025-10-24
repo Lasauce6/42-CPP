@@ -6,14 +6,15 @@
 #    By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 15:16:11 by rbaticle          #+#    #+#              #
-#    Updated: 2025/10/24 14:43:26 by rbaticle         ###   ########.fr        #
+#    Updated: 2025/10/24 15:33:54 by rbaticle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex00
+NAME = ex01
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 SRCS = Bureaucrat.cpp \
+	   Form.cpp \
 	   main.cpp
 
 OBJS_DIR = .objs/

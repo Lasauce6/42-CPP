@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 13:37:18 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/10/24 16:04:01 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/10/24 16:22:40 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <string>
 # include <iostream>
+# include "Form.hpp"
+
 
 class Bureaucrat {
 public:
@@ -36,6 +38,8 @@ public:
 	void		incrementGrade(void);
 	void		decrementGrade(void);
 	friend std::ostream	&operator<<(std::ostream &os, const Bureaucrat &b);
+
+	void		signForm(Form f);
 
 	~Bureaucrat(void);
 private:
