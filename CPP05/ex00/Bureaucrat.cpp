@@ -6,16 +6,16 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 12:57:02 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/10/24 16:05:31 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/03 12:31:23 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
-	if (_grade > 150)
+	if (grade > 150)
 		throw GradeTooLowException();
-	else if (_grade < 1)
+	else if (grade < 1)
 		throw GradeTooHighException();
 	else
 		this->_grade = grade;

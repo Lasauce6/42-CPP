@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:48:22 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/10/27 15:01:15 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/03 12:33:47 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Form::Form(std::string name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false) {
 	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw GradeTooHighException();
-	else if (gradeToSign > 250 || gradeToExecute > 250)
+	else if (gradeToSign > 150 || gradeToExecute > 150)
 		throw GradeTooLowException();
 	else {
 		_gradeToSign = gradeToSign;

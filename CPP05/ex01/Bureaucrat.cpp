@@ -6,16 +6,16 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 12:57:02 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/10/24 16:29:38 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/03 12:32:07 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
-	if (_grade > 150)
+	if (grade > 150)
 		throw GradeTooLowException();
-	else if (_grade < 1)
+	else if (grade < 1)
 		throw GradeTooHighException();
 	else
 		this->_grade = grade;
@@ -63,7 +63,7 @@ std::ostream	&operator<<(std::ostream &os, const Bureaucrat &b)
 	return (os);
 }
 
-void	Bureaucrat::signForm(Form f) {
+void	Bureaucrat::signForm(Form &f) {
 	try {
 		f.beSigned(*this);
 		std::cout << _name << " signed " << f.getName() << std::endl;

@@ -6,46 +6,63 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 14:31:15 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/03 13:12:52 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/03 14:23:57 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
+#include <cstdlib>
 
 int	main(void) {
 	// AForm	test;
-	PresidentialPardonForm	pres = PresidentialPardonForm("Lab");
-	RobotomyRequestForm		rob = RobotomyRequestForm("Fence");
-	ShrubberyCreationForm	shrub = ShrubberyCreationForm("Home");
-	Bureaucrat				patron = Bureaucrat("Musk", 1);
-	Bureaucrat				cadre = Bureaucrat("Michel", 50);
-	Bureaucrat				sous_fifre = Bureaucrat("Employe", 150);
+	AForm		*pres;
+	AForm		*rob;
+	AForm		*shrub;
+	Bureaucrat	patron = Bureaucrat("Musk", 1);
+	Bureaucrat	cadre = Bureaucrat("Michel", 50);
+	Bureaucrat	sous_fifre = Bureaucrat("Employe", 150);
+	Intern		non_paye = Intern();
+
+	pres = non_paye.makeForm("presidential pardon", "Lab");
+	rob = non_paye.makeForm("robotomy request", "Bender");
+	shrub = non_paye.makeForm("shrubbery creation", "Home");
+
+	if (pres == NULL || rob == NULL || shrub == NULL) {
+		if (pres)
+			delete pres;
+		if (rob)
+			delete rob;
+		if (shrub)
+			delete shrub;
+		exit(1);
+	}
 
 	std::cout << "Bureaucrat grade 150 tries to sign forms" << std::endl;
-	sous_fifre.signForm(pres);
-	sous_fifre.signForm(rob);
-	sous_fifre.signForm(shrub);
+	sous_fifre.signForm(*pres);
+	sous_fifre.signForm(*rob);
+	sous_fifre.signForm(*shrub);
 
 
 	std::cout << std::endl << "Bureaucrat grade 50 tries to sign forms" << std::endl;
-	cadre.signForm(pres);
-	cadre.signForm(rob);
-	cadre.signForm(shrub);
+	cadre.signForm(*pres);
+	cadre.signForm(*rob);
+	cadre.signForm(*shrub);
 
 	std::cout << std::endl << "Bureaucrat grade 1 tries to execute forms" << std::endl;
-	patron.executeForm(pres);
-	patron.executeForm(rob);
-	patron.executeForm(shrub);
+	patron.executeForm(*pres);
+	patron.executeForm(*rob);
+	patron.executeForm(*shrub);
 	std::cout << "Sign and execute PresidentialPardonForm" << std::endl;
-	patron.signForm(pres);
-	patron.executeForm(pres);
+	patron.signForm(*pres);
+	patron.executeForm(*pres);
 
 	std::cout << std::endl << "Bureaucrat grade 150 tries to execute forms" << std::endl;
-	sous_fifre.executeForm(pres);
-	sous_fifre.executeForm(rob);
-	sous_fifre.executeForm(shrub);
+	sous_fifre.executeForm(*pres);
+	sous_fifre.executeForm(*rob);
+	sous_fifre.executeForm(*shrub);
 
+	delete pres;
+	delete rob;
+	delete shrub;
 }
