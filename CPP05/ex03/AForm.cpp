@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:48:22 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/03 12:34:44 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:41:19 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ const char	*AForm::FormNotSignedException::what(void) const throw() {
 }
 
 std::ostream	&operator<<(std::ostream &os, const AForm &f) {
-	std::cout << "Form : " << f.getName() << std::endl
-		<< "Grade to sign : " << f.getGradeToSign() << std::endl
-		<< "Grade to execute : " << f.getGradeToExecute() << std::endl
+	std::cout << "Form : " << f.getName() << "\n"
+		<< "Grade to sign : " << f.getGradeToSign() << "\n"
+		<< "Grade to execute : " << f.getGradeToExecute() << "\n"
 		<< "Signed : " << f.isSigned();
 	return (os);
 }

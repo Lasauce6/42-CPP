@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 14:50:37 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/03 13:10:19 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:42:55 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	ShrubberyCreationForm::_execution(void) const {
            , -=-~  .-^- _";
 
 	if (!file.is_open())
-		std::cerr << "Error while opening the file" << std::endl;
+		std::cerr << "Error while opening the file\n";
 	else {
-		file << tree << std::endl;
+		file << tree << "\n";
 		file.close();
 	}
 }

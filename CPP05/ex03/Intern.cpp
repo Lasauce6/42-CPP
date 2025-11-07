@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 13:37:05 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/03 14:22:04 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:41:59 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ AForm	*Intern::makeForm(const std::string name, const std::string target)
 
 	for (int i = 0; i < 4; i++) {
 		if (i == 3) {
-			std::cerr << "Error: the requested form does not exist" << std::endl;
+			std::cerr << "Error: the requested form does not exist" << "\n";
 			return (NULL);
 		} else if (name == inputs[i])
 			return (func[i](target));

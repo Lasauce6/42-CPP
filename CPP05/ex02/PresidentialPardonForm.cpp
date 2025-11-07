@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 14:50:37 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/10/30 15:14:32 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:39:19 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ std::string	PresidentialPardonForm::getTarget(void) const {
 }
 
 void	PresidentialPardonForm::_execution(void) const {
-	std::cout << _target << "has been pardoned by Zaphod Beeblebrox" << std::endl;
+	std::cout << _target << "has been pardoned by Zaphod Beeblebrox\n";
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {}

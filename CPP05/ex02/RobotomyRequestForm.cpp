@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 14:50:37 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/03 12:42:39 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:39:49 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ std::string	RobotomyRequestForm::getTarget(void) const {
 void	RobotomyRequestForm::_execution(void) const {
 	int	r = rand() % 101;
 
-	std::cout << "bzzzzrrrdrdrdrdddrdrr...drprapasrspsp..razdzpdzpdzrpzrpezezpz" << std::endl
-		<< "brbrbrbbrbrrbrbbrzzbzr.. prrrbrbrrbrzzzzbzbzbzzbzzzzz" << std::endl << "- ";
+	std::cout << "bzzzzrrrdrdrdrdddrdrr...drprapasrspsp..razdzpdzpdzrpzrpezezpz\n"
+		<< "brbrbrbbrbrrbrbbrzzbzr.. prrrbrbrrbrzzzzbzbzbzzbzzzzz\n- ";
 	if (r < 50)
-		std::cout << _target << " has been robotomized successfully !" << std::endl;
+		std::cout << _target << " has been robotomized successfully !\n";
 	else
-		std::cout << "Robotomy failed :(" << std::endl;
+		std::cout << "Robotomy failed :(\n";
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(void) {}

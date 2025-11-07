@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 15:48:22 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/03 12:33:47 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/07 14:37:24 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ const char	*Form::GradeTooLowException::what(void) const throw() {
 }
 
 std::ostream	&operator<<(std::ostream &os, const Form &f) {
-	std::cout << "Form : " << f.getName() << std::endl
-		<< "Grade to sign : " << f.getGradeToSign() << std::endl
-		<< "Grade to execute : " << f.getGradeToExecute() << std::endl
+	std::cout << "Form : " << f.getName() << "\n"
+		<< "Grade to sign : " << f.getGradeToSign() << "\n"
+		<< "Grade to execute : " << f.getGradeToExecute() << "\n"
 		<< "Signed : " << f.isSigned();
 	return (os);
 }
