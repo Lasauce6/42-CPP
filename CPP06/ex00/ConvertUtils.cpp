@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 12:01:05 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/07 14:35:16 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/12 11:41:38 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,12 @@ void	from_int(std::string str) {
 		std::cout << "impossible\n";
 	else
 		std::cout << static_cast<int>(val) << "\n";
-	std::cout << "float: " << static_cast<float>(val) << ".0f\n"
-		<< "double: " << val << ".0\n";
+	if (val >= 1e6)
+		std::cout << "float: " << static_cast<float>(val) << "f\n"
+			<< "double: " << val << "\n";
+	else
+		std::cout << "float: " << static_cast<float>(val) << ".0f\n"
+			<< "double: " << val << ".0\n";
 }
 
 void	from_float(std::string str) {
@@ -116,8 +120,12 @@ void	from_float(std::string str) {
 		std::cout << "impossible\n";
 	else
 		std::cout << static_cast<int>(val) << "\n";
-	std::cout << "float: " << val << "f\n"
-		<< "double: " << static_cast<double>(val) << "\n";
+	if (val - static_cast<int>(val) || val >= 1e6)
+		std::cout << "float: " << val << "f\n"
+			<< "double: " << static_cast<double>(val) << "\n";
+	else
+		std::cout << "float: " << val << ".0f\n"
+			<< "double: " << static_cast<double>(val) << ".0\n";
 }
 
 void	from_double(std::string str) {
@@ -135,8 +143,12 @@ void	from_double(std::string str) {
 		std::cout << "impossible\n";
 	else
 		std::cout<< static_cast<int>(val) << "\n";
-	std::cout << "float: " << static_cast<float>(val) << "f\n"
-		<< "double: " << val << "\n";
+	if (val - static_cast<int>(val) || val >= 1e6)
+		std::cout << "float: " << static_cast<float>(val) << "f\n"
+			<< "double: " << val << "\n";
+	else
+		std::cout << "float: " << static_cast<float>(val) << ".0f\n"
+			<< "double: " << val << ".0\n";
 }
 
 void	special(std::string str) {
