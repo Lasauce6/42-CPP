@@ -6,8 +6,18 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 09:42:19 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/17 11:25:15 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/18 13:28:34 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "iter.hpp"
 
+int	main(void) {
+	int		list[] = {1, 2, 3, 4, 5};
+	iter(&list, 5, &print_e);
+	std::cout << "\n";
+
+	char	listc[] = {'a', 'b', 'c', 'd', 'e'};
+	iter(&listc, 5, &print_e_const);
+	std::cout << "\n";
+}
