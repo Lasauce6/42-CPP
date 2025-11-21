@@ -6,11 +6,11 @@
 #    By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 15:16:11 by rbaticle          #+#    #+#              #
-#    Updated: 2025/11/21 11:59:16 by rbaticle         ###   ########.fr        #
+#    Updated: 2025/11/21 11:59:40 by rbaticle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
+NAME = ex02
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 SRCS = main.cpp
