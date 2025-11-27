@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:20:46 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/26 14:13:02 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/11/27 13:36:05 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ public:
 
 	void	addNumber(int nb);
 
-	class OutOfBoundsException : public std::exception {
+	class SpanFullException : public std::exception {
 		const char	*what(void) const throw();
 	};
 
 	unsigned int	shortestSpan(void);
 	unsigned int	longestSpan(void);
 
-	class EmptySpanException : public std::exception {
+	class NotEnoughNumbersException : public std::exception {
 		const char	*what(void) const throw();
 	};
 
