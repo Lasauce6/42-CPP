@@ -6,14 +6,15 @@
 #    By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 15:16:11 by rbaticle          #+#    #+#              #
-#    Updated: 2025/11/26 13:20:38 by rbaticle         ###   ########.fr        #
+#    Updated: 2025/12/03 15:21:54 by rbaticle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex01
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-SRCS = main.cpp
+SRCS = main.cpp \
+	   Span.cpp
 
 OBJS_DIR = .objs/
 OBJ = $(SRCS:.cpp=.o)

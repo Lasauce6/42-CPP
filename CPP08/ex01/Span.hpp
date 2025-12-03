@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:20:46 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/11/27 13:36:05 by rbaticle         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:19:43 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ public:
 	class NotEnoughNumbersException : public std::exception {
 		const char	*what(void) const throw();
 	};
+
+	void	fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
 	~Span(void);
 private:
