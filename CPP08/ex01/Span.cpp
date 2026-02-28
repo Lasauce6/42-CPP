@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 13:34:35 by rbaticle          #+#    #+#             */
-/*   Updated: 2025/12/03 16:24:32 by rbaticle         ###   ########.fr       */
+/*   Updated: 2026/02/28 16:33:20 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,11 @@ const char	*Span::NotEnoughNumbersException::what(void) const throw() {
 }
 
 void	Span::fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
-// TODO: todo
+	for (std::vector<int>::iterator it = begin; it != end; it++) {
+		if (_vec.size() >= _N)
+			throw SpanFullException();
+		_vec.push_back(*it);
+	}
 }
-
 
 Span::~Span(void) {}

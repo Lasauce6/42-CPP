@@ -1,23 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 15:01:40 by rbaticle          #+#    #+#             */
-/*   Updated: 2026/02/28 14:54:14 by rbaticle         ###   ########.fr       */
+/*   Created: 2026/02/28 16:34:27 by rbaticle          #+#    #+#             */
+/*   Updated: 2026/02/28 16:34:36 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#pragma once
-#include <algorithm>
-
-template<typename T>
-typename T::pointer	easyfind(T container, int to_find) {
-	typename T::iterator it = std::find(container.begin(), container.end(), to_find);
-	if (it != container.end())
-		return (&(*it));
-	return (NULL);
-}
+#include "MutantStack.hpp"
