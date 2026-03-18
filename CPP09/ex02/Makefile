@@ -6,15 +6,15 @@
 #    By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/28 15:16:11 by rbaticle          #+#    #+#              #
-#    Updated: 2026/03/06 14:03:29 by rbaticle         ###   ########.fr        #
+#    Updated: 2026/03/06 14:19:32 by rbaticle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = RPN
+NAME = PmergeMe
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 SRCS = main.cpp \
-	   RPN.cpp
+	   PmergeMe.cpp
 
 OBJS_DIR = .objs/
 OBJ = $(SRCS:.cpp=.o)
