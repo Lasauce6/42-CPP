@@ -6,7 +6,7 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 11:50:45 by rbaticle          #+#    #+#             */
-/*   Updated: 2026/03/25 11:59:29 by rbaticle         ###   ########.fr       */
+/*   Updated: 2026/03/26 11:14:57 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ long	PmergeMe::jacobsthal(long n) {
 }
 
 void	PmergeMe::sort_vector(std::vector<int> &vector) {
-	merge_insertion_sort< std::vector<int> >(vector, 1);
+	merge_insertion_sort(vector, 1);
 }
 
 void	PmergeMe::sort_deque(std::deque<int> &deque) {
-	merge_insertion_sort< std::deque<int> >(deque, 1);
+	merge_insertion_sort(deque, 1);
 }
 
 PmergeMe::~PmergeMe(void) {}

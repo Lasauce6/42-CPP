@@ -6,12 +6,13 @@
 /*   By: rbaticle <rbaticle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 16:35:54 by rbaticle          #+#    #+#             */
-/*   Updated: 2026/03/25 14:55:16 by rbaticle         ###   ########.fr       */
+/*   Updated: 2026/03/26 12:17:22 by rbaticle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <algorithm>
+#include <iterator>
 #include <vector>
 #include <deque>
 
@@ -40,19 +41,19 @@ private:
 		return it;
 	}
 
-	template<typename C>
-	void	merge_insertion_sort(C &container, int pair_level) {
-		typedef typename C::iterator	Iterator;
+	template<typename T, template<typename, typename> class C>
+	void	merge_insertion_sort(C< T, std::allocator<T> > &container, int pair_level) {
+		typedef typename C< T, std::allocator<T> >::iterator	Iterator;
 
-		int	pair_units_nbr = container.size() / pair_level;
-		if (pair_units_nbr < 2)
+		int	nb_pairs = container.size() / pair_level;
+		if (nb_pairs < 2)
 			return;
 
 		// Ignore odd pair while swapping
-		bool	is_odd = pair_units_nbr % 2 == 1;
+		bool	is_odd = nb_pairs % 2 == 1;
 
 		Iterator	start = container.begin();
-		Iterator	last = next(container.begin(), pair_level * (pair_units_nbr));
+		Iterator	last = next(container.begin(), pair_level * (nb_pairs));
 		Iterator	end = next(last, -(is_odd * pair_level));
 
 		// Swap pairs by the biggest pair number
@@ -69,69 +70,56 @@ private:
 		// Divide pairs into main and pend
 		// Main with sorted sequence
 		// Pend with yet to be sorted
-		Iterator	*main_arr = new Iterator[container.size()];
-		Iterator	*pend_arr = new Iterator[container.size()];
-		int	main_size = 0;
-		int	pend_size = 0;
+		C< Iterator, std::allocator<Iterator> >	main;
+		C< Iterator, std::allocator<Iterator> >	pend;
 
 		// Init the main with {b1, a1}
-		main_arr[main_size++] = next(container.begin(), pair_level - 1);
-		main_arr[main_size++] =  next(container.begin(), pair_level * 2 - 1);
+		main.push_back(next(container.begin(), pair_level - 1));
+		main.push_back(next(container.begin(), pair_level * 2 - 1));
 
 		// Insert the rest of a into main and the rest of b into pend
-		for (int i = 4; i <= pair_units_nbr; i += 2) {
-			pend_arr[pend_size++] = next(container.begin(), pair_level * (i - 1) - 1);
-			main_arr[main_size++] = next(container.begin(), pair_level * i - 1);
+		for (int i = 4; i <= nb_pairs; i += 2) {
+			pend.push_back(next(container.begin(), pair_level * (i - 1) - 1));
+			main.push_back(next(container.begin(), pair_level * i -1));
 		}
 
 		// Insert the odd element if one
 		if (is_odd)
-			pend_arr[pend_size++] = next(end, pair_level - 1);
+			pend.push_back(next(end, pair_level - 1));
 
 		// Insert the pend into the main in order determined by Jacobsthal numbers
 		// We insert by reverse example : 3 2 -> 5 4 -> 11 10 9 8 7 6 ...
 		int	prev_jacobsthal = jacobsthal(1);
 		int	inserted_numbers = 0;
+		typedef typename C< Iterator, std::allocator<Iterator> >::iterator	ItContIterator;
 		for (int k = 2;; k++) {
 			int	curr_jacobsthal = jacobsthal(k);
 			int	jacobsthal_diff = curr_jacobsthal - prev_jacobsthal;
 			int	offset = 0;
 
-			if (jacobsthal_diff > pend_size)
+			if (jacobsthal_diff > static_cast<long>(pend.size()))
 				break;
 
-			int	nbr_of_times =jacobsthal_diff;
-
+			int	nbr_of_times = jacobsthal_diff;
+			ItContIterator	pend_it = next(pend.begin(), jacobsthal_diff - 1);
+			ItContIterator	bound_it = next(main.begin(), curr_jacobsthal + inserted_numbers);
 			int	pend_idx = jacobsthal_diff - 1;
 
 			while (nbr_of_times) {
-				Iterator	val_to_insert = pend_arr[pend_idx];
-
-				int	bound_idx = curr_jacobsthal + inserted_numbers;
-
-				Iterator	*idx_ptr = std::upper_bound(main_arr, main_arr + bound_idx, val_to_insert, comp<Iterator>);
-				int	insert_pos = idx_ptr - main_arr;
-
-				// Insert (shift right)
-				for (int i = main_size; i > insert_pos; i--)
-					main_arr[i] = main_arr[i - 1];
-				main_size++;
-				main_arr[insert_pos] = val_to_insert;
+				ItContIterator	idx = std::upper_bound(main.begin(), bound_it, *pend_it, comp<Iterator>);
+				ItContIterator	inserted = main.insert(idx, *pend_it);
 
 				nbr_of_times--;
 
-				// Delete in pend_arr (shift left)
-				for (int i = pend_idx; i < pend_size - 1; i++)
-					pend_arr[i] = pend_arr[i + 1];
-				pend_size--;
+				pend_it = pend.erase(pend_it);
+				std::advance(pend_it, -1);
 
 				// Decrement index
 				pend_idx--;
 
 				// Offset if the inserted number is at the exact index where the bound should be to do less comparisons
-				if (insert_pos == bound_idx)
-					offset++;
-				bound_idx = curr_jacobsthal + inserted_numbers - offset;
+				offset += (inserted - main.begin()) == curr_jacobsthal + inserted_numbers;
+				bound_it = next(main.begin(), curr_jacobsthal + inserted_numbers - offset);
 			}
 			prev_jacobsthal = curr_jacobsthal;
 			inserted_numbers += jacobsthal_diff;
@@ -139,42 +127,32 @@ private:
 		}
 
 		// Insert remaining elements in reverse order with the less comparisons
-		for (ssize_t i = pend_size - 1; i >= 0; i--) {
-			Iterator curr_val = pend_arr[i];
-			int bound_idx = main_size;
-
-			Iterator* idx_ptr = std::upper_bound(main_arr, main_arr + bound_idx, curr_val, comp<Iterator>);
-			int insert_pos = idx_ptr - main_arr;
-
-			for (int j = main_size; j > insert_pos; j--)
-				main_arr[j] = main_arr[j - 1];
-			main_size++;
-			main_arr[insert_pos] = curr_val;
+		for (ssize_t i = pend.size() - 1; i >= 0; i--) {
+			ItContIterator	curr_pend = next(pend.begin(), i);
+			ItContIterator	curr_bound = next(main.begin(), main.size() - pend.size() + i + is_odd);
+			ItContIterator	idx = std::upper_bound(main.begin(), curr_bound, *curr_pend, comp<Iterator>);
+			main.insert(idx, *curr_pend);
 		}
 
-		// Use copy array to store all the numbers
-		int* copy_arr = new int[container.size()];
-		int copy_idx = 0;
-
-		for (int i = 0; i < main_size; i++) {
-			Iterator pair_start = main_arr[i];
-			std::advance(pair_start, -pair_level + 1);
-			for (int j = 0; j < pair_level; j++) {
-				copy_arr[copy_idx++] = *pair_start;
-				pair_start++;
+		// Use copy container to store all the numbers
+		C< T, std::allocator<T> >	copy;
+		for (ItContIterator it = main.begin(); it != main.end(); it++) {
+			for (int i = 0; i < pair_level; i++) {
+				Iterator	pair_start = *it;
+				std::advance(pair_start, -pair_level + i + 1);
+				copy.insert(copy.end(), *pair_start);
 			}
 		}
 
 		// Replace values in original container
-		Iterator container_it = container.begin();
-		for (int i = 0; i < copy_idx; i++) {
-			*container_it = copy_arr[i];
+		Iterator	copy_it = copy.begin();
+		Iterator	container_it = container.begin();
+		while (copy_it != copy.end()) {
+			*container_it = *copy_it;
 			container_it++;
+			copy_it++;
 		}
 
-		delete[] main_arr;
-		delete[] pend_arr;
-		delete[] copy_arr;
 	}
 
 	template<typename C>
